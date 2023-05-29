@@ -18,11 +18,13 @@
         function loadDoc() {
             const xhttp = new XMLHttpRequest();
 
-            xhttp.onload = function () {
-                calculate(this);
-            }
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    calculate(this);
+                }
+            };
 
-            xhttp.open("GET", "rate.xml");
+            xhttp.open("GET", "rate.xml", true);
             xhttp.send();
         }
 
@@ -31,7 +33,6 @@
             const rates = xmlDoc.getElementsByTagName("RATE");
 
             let table = "<tr><th>幣別</th><th>匯率</th><th>結果</th></tr>";
-
             for (let i = 0; i < rates.length; i++) {
                 const currency = rates[i].getElementsByTagName("currency")[0].childNodes[0].nodeValue;
                 const rate = rates[i].getElementsByTagName("value")[0].childNodes[0].nodeValue;
