@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>匯率轉換計算機</title>
+</head>
+
+<body>
+    <h1>匯率轉換計算機</h1>
+
+    <h2>請輸入台幣金額：</h2>
+    <input type="text" id="amount" placeholder="輸入金額">
+    <button type="button" onclick="loadDoc()">執行計算</button>
+    <br><br>
+    <table id="output"></table>
+
+    <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onload = function () {
+                calculate(this);
+            }
+
+            xhttp.open("GET", "rate.xml");
+            xhttp.send();
+        }
+
+        function calculate(xml) {
+            const xmlDoc = xml.responseXML;
+            const rates = xmlDoc.getElementsByTagName("RATE");
+
+            let table = "<tr><th>幣別</th><th>匯率</th><th>結果</th></tr>";
+
+            for (let i = 0; i < rates.length; i++) {
+                const currency = rates[i].getElementsByTagName("currency")[0].childNodes[0].nodeValue;
+                const rate = rates[i].getElementsByTagName("value")[0].childNodes[0].nodeValue;
+                const amount = document.getElementById("amount").value;
+                const result = parseFloat(rate) * parseFloat(amount);
+
+                table += "<tr><td>" + currency + "</td><td>" + rate + "</td><td>" + result.toFixed(2) + "</td></tr>";
+            }
+
+            document.getElementById("output").innerHTML = table;
+        }
+    </script>
+</body>
+
+</html>
