@@ -33,8 +33,10 @@
         function calculate(xml) {
             const xmlDoc = xml.responseXML;
             const x = xmlDoc.getElementsByTagName("RATE");
-            if (isNaN(document.getElementById("amount").value)) {
+            //檢查輸入是否為數字
+            if(!amount || isNaN(amount)){
                 alert("請輸入數字");
+                reset();
                 return;
             }
 
@@ -48,10 +50,13 @@
 
             document.getElementById("output").innerHTML = table;
         }
-        
+
+        //reset
+        //清除表格
         function reset() {
             document.getElementById("amount").value = "";
             document.getElementById("output").innerHTML = "";
+
         }
     </script>
 </body>
