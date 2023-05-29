@@ -51,14 +51,3 @@ th {
     background-color: #4CAF50;
     color: white;
 }
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container div {
-    text-align: center;
-}
