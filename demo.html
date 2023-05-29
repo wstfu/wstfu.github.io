@@ -3,6 +3,7 @@
 
 <head>
     <title>匯率轉換計算機</title>
+    <!-- 這是第三部分 -->
     <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 
@@ -19,6 +20,7 @@
     <table id="output"></table>
 
     <script>
+        //以下是第一部分的實作
         function loadDoc() {
             const xhttp = new XMLHttpRequest();
 
@@ -26,6 +28,7 @@
                 calculate(this);
             }
 
+            //這裡是第二部分的實作
             xhttp.open("GET", "./rate.xml", true);
             xhttp.send();
         }
@@ -45,8 +48,7 @@
             document.getElementById("output").innerHTML = table;
         }
 
-        //reset
-        //清除表格
+        //reset以下是第四部份的實作
         function reset() {
             document.getElementById("amount").value = "";
             document.getElementById("output").innerHTML = "";
