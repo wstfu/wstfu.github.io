@@ -3,7 +3,7 @@
 
 <head>
     <title>匯率轉換計算機</title>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -12,17 +12,14 @@
     <div>
         <label for="amount">請輸入台幣金額：</label>
         <input type="text" id="amount" placeholder="輸入金額">
-        <button type="button" onclick="loadDoc()">執行計算</button>
-        <button onclick="resetForm()">重新開始</button>
+        <button type = "button" onclick = "loadDoc()">執行計算</button>
+        <button type = "button" onclick = "reset()">重新開始</button>
     </div>
 
     <table id="output"></table>
 
     <script>
         function loadDoc() {
-            const amountInput = document.getElementById("amount");
-            const amount = amountInput.value.trim();
-
             const xhttp = new XMLHttpRequest();
 
             xhttp.onload = function () {
@@ -48,9 +45,12 @@
             document.getElementById("output").innerHTML = table;
         }
 
-        function resetForm() {
+        //reset
+        //清除表格
+        function reset() {
             document.getElementById("amount").value = "";
             document.getElementById("output").innerHTML = "";
+            
         }
     </script>
 </body>
