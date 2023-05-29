@@ -33,6 +33,10 @@
         function calculate(xml) {
             const xmlDoc = xml.responseXML;
             const x = xmlDoc.getElementsByTagName("RATE");
+            if (isNaN(document.getElementById("amount").value)) {
+                alert("請輸入數字");
+                return;
+            }
 
             let table = "<tr><th>幣別</th><th>匯率</th><th>結果</th></tr>";
 
