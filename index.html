@@ -32,14 +32,14 @@
 
         function calculate(xml) {
             const xmlDoc = xml.responseXML;
-            const x = xmlDoc.getElementsByTagName("rateUSD");
+            const x = xmlDoc.getElementsByTagName("RATE");
 
             let table = "<tr><th>幣別</th><th>匯率</th><th>結果</th></tr>";
 
             for (let i = 0; i < x.length; i++) {
                 table += "<tr><td>" + x[i].getElementsByTagName("currency")[0].childNodes[0].nodeValue + "</td><td>" +
-                    x[i].getElementsByTagName("rate")[0].childNodes[0].nodeValue + "</td><td>" +
-                    x[i].getElementsByTagName("rate")[0].childNodes[0].nodeValue * document.getElementById("amount").value + "</td></tr>";
+                    x[i].getElementsByTagName("value")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("value")[0].childNodes[0].nodeValue * document.getElementById("amount").value + "</td></tr>";
             }
 
             document.getElementById("output").innerHTML = table;
