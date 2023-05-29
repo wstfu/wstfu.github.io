@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RATE>
-  <currency>US Dollar</currency>
-  <value>0.033</value>
-</RATE>
+<rates>
+    <RATE>
+        <currency>美金</currency>
+        <value>0.033</value>
+    </RATE>
+    <RATE>
+        <currency>歐元</currency>
+        <value>0.03</value>
+    </RATE>
+    <RATE>
+        <currency>日幣</currency>
+        <value>4.76</value>
+    </RATE>
+    <RATE>
+        <currency>韓元</currency>
+        <value>47.6</value>
+    </RATE>
+    <RATE>
+        <currency>澳幣</currency>
+        <value>0.05</value>
+    </RATE>
+</rates>
